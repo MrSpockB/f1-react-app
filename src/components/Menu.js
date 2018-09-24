@@ -8,6 +8,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PersonIcon from '@material-ui/icons/Person';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 
 const styles = {
   list: {
@@ -36,7 +37,13 @@ const Menu = ({ open, toggleDrawer, classes }) => (
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Standings" />
+              <ListItemText primary="Driver Standings" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <EqualizerIcon />
+              </ListItemIcon>
+              <ListItemText primary="Constructor Standings" />
             </ListItem>
           </Fragment>
         </List>
