@@ -15,6 +15,9 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  details: {
+    flexDirection: 'column',
+  },
 });
 
 const RaceList = ({ races, classes }) => (
@@ -24,6 +27,20 @@ const RaceList = ({ races, classes }) => (
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{race.raceName}</Typography>
         </ExpansionPanelSummary>
+        <ExpansionPanelDetails className={classes.details}>
+          <Typography>
+            Round #{race.round}
+          </Typography>
+          <Typography>
+            Date: {race.date}
+          </Typography>
+          <Typography>
+            Time: {race.time}
+          </Typography>
+          <Typography>
+            Circuit: {race.Circuit.circuitName}
+          </Typography>
+        </ExpansionPanelDetails>
       </ExpansionPanel>
     ))
     }
