@@ -4,7 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import { Drawer } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import PersonIcon from '@material-ui/icons/Person';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 const styles = {
   list: {
@@ -24,9 +27,15 @@ const Menu = ({ open, toggleDrawer, classes }) => (
         <List>
           <Fragment>
             <ListItem button>
-              <ListItemText primary="Races" />
+              <ListItemIcon>
+                <CalendarTodayIcon />
+              </ListItemIcon>
+              <ListItemText primary="Race Schedule" />
             </ListItem>
             <ListItem button>
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
               <ListItemText primary="Standings" />
             </ListItem>
           </Fragment>
