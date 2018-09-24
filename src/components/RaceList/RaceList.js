@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import format from 'date-fns/format';
+import esLocale from 'date-fns/locale/es';
 import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 const styles = theme => ({
   root: {
@@ -19,6 +22,12 @@ const styles = theme => ({
     flexDirection: 'column',
   },
 });
+
+const getLocalTime = (race) => {
+  const dateTime = `${race.date}T${race.time}`;
+  const parsedDate = new Date(dateTime);
+  return format(parsedDate, 'ddd DD [de] MMMM, HH:mm a', { locale: esLocale });
+}
 
 const RaceList = ({ races, classes }) => (
   <div className={styles.root}>
@@ -36,6 +45,9 @@ const RaceList = ({ races, classes }) => (
           </Typography>
           <Typography>
             Time: {race.time}
+          </Typography>
+          <Typography>
+            Local Date: {getLocalTime(race)}
           </Typography>
           <Typography>
             Circuit: {race.Circuit.circuitName}
