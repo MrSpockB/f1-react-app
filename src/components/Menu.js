@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Link,
+} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { Drawer } from '@material-ui/core';
 import List from '@material-ui/core/List';
@@ -13,6 +16,10 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 const styles = {
   list: {
     width: 250,
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#333',
   },
 };
 
@@ -31,19 +38,25 @@ const Menu = ({ open, toggleDrawer, classes }) => (
               <ListItemIcon>
                 <CalendarTodayIcon />
               </ListItemIcon>
-              <ListItemText primary="Race Schedule" />
+              <ListItemText>
+                <Link className={classes.link} to="/race-schedule">Race Schedule</Link>
+              </ListItemText>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Driver Standings" />
+              <ListItemText>
+                <Link className={classes.link} to="/driver-standings">Driver Standings</Link>
+              </ListItemText>
             </ListItem>
             <ListItem button>
               <ListItemIcon>
                 <EqualizerIcon />
               </ListItemIcon>
-              <ListItemText primary="Constructor Standings" />
+              <ListItemText>
+                <Link className={classes.link} to="/constructor-standings">Constructor Standings</Link>
+              </ListItemText>
             </ListItem>
           </Fragment>
         </List>
